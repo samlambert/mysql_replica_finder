@@ -8,23 +8,23 @@ module MysqlReplicaFinder
       @replicas = []
       @primary_connection = connection
       @recurse = recurse
-      fetch
     end
 
     def fetch
       unless @recurse
-        @replicas << get_replica_hosts_from_connection(@primary_connection)
+        @replicas << replica_hosts_from_connection(@primary_connection)
       else
-        get_replica_hosts_from_connection_rec(@primary_connection)
+        replica_hosts_from_connection_rec(@primary_connection)
       end
     end
    
     def replicas
+      fetch
       @replicas
     end
 
     # Returns an array or replicas that are connected
-    def get_replica_hosts_from_connection(connection)
+    def replica_hosts_from_connection(connection)
       replicas = []
       rows = select_all(connection, "SHOW PROCESSLIST")
       rows.each do |row|
@@ -43,17 +43,13 @@ module MysqlReplicaFinder
       Mysql2::Client.new(@primary_connection.query_options.merge({ :host => host}))
     end
 
-    def get_replica_hosts_from_connection_rec(connection)
-      if connection.kind_of? Array
-        connection.each {|conn| get_replicas(conn) }
-      else
-        get_replica_hosts_from_connection(connection).map do |replica|
-          @replicas << replica
-          get_replica_hosts_from_connection_rec(transform_replica_to_connection(replica))
-        end
+    def replica_hosts_from_connection_rec(connection)
+      replica_hosts_from_connection(connection).map do |replica|
+        @replicas << replica
+        replica_hosts_from_connection_rec(transform_replica_to_connection(replica))
       end
     end
-
+    
   end
 end
 
