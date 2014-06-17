@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    mysql_replica_finder (0.0.1)
+      mysql2
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    mysql2 (0.3.16)
+    rake (10.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.5)
+  mysql_replica_finder!
+  rake

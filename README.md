@@ -1,6 +1,24 @@
 # MysqlReplicaFinder
 
-TODO: Write a gem description
+A gem that finds all replicas on a given mysql2 connection. MysqlReplicaFinder can also recurse through a replication topology and find all replicas in the chain.
+
+## Usage
+
+Pass in a connection and whether you would like to recurse:
+
+`finder = MysqlReplicaFinder::Finder.new(connection, false)`
+
+Then call:
+
+`finder.replicas`
+
+## Example
+
+Run:
+
+`ruby example/example.rb master.loldatabases.com user password`
+
+to return a list of replicas.
 
 ## Installation
 
@@ -15,10 +33,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install mysql_replica_finder
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
