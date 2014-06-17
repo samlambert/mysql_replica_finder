@@ -19,7 +19,7 @@ If recurse is true then MysqlReplicaFinder will make a new connection to each sl
 
 Run:
 
-`ruby example/example.rb master.loldatabases.com user password`
+`ruby example/example.rb <master_host> <user> <password>`
 
 to return a list of replicas.
 
