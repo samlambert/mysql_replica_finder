@@ -12,6 +12,9 @@ Then call:
 
 `finder.replicas`
 
+#### Recurse = true
+If recurse is true then MysqlReplicaFinder will make a new connection to each slave using the same credentials as the passed connection. It will use each connection to navigate down the replication chain.
+
 ## Example
 
 Run:
