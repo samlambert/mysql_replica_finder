@@ -39,6 +39,8 @@ Or install it yourself as:
 
 ## Contributing
 
+Pull requests welcome!
+
 1. Fork it ( http://github.com/samlambert/mysql_replica_finder/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
