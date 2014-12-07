@@ -1,4 +1,4 @@
-# MysqlReplicaFinder
+# MySQLReplicaFinder
 
 A gem that finds all replicas on a given mysql2 connection. MysqlReplicaFinder can also recurse through a replication topology and find all replicas in the chain.
 
