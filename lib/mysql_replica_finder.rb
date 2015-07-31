@@ -23,7 +23,7 @@ module MysqlReplicaFinder
       @replicas
     end
 
-    # Returns an array or replicas that are connected
+    # Returns an array of replicas that are connected
     def replica_hosts_from_connection(connection)
       replicas = []
       rows = select_all(connection, "SHOW PROCESSLIST")
